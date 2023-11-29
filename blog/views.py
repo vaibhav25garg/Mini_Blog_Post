@@ -12,11 +12,14 @@ def home(request):
 
 #About
 def about(request):
-    return render(request, 'blog/about.html')
+    response = render(request, 'blog/about.html')
+    response.set_cookie('vaibhav','garg')
+    return response
 
 #Contact
 def contact(request):
-    return render(request, 'blog/contact.html')
+    nm = request.COOKIES['vaibhav']
+    return render(request, 'blog/contact.html',{'name':nm})
 
 #Dashboard
 def dashboard(request):
