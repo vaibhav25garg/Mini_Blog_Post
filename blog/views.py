@@ -28,6 +28,7 @@ def dashboard(request):
         user = request.user
         full_name = user.get_full_name()
         gps = user.groups.all()
+        # ip = request.session.get("ip", 0) #for finding ip of any user
         return render(request, 'blog/dashboard.html',{'posts':posts, 'full_name': full_name, 'groups':gps},)
     else:
         return HttpResponseRedirect('/login/')
